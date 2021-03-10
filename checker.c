@@ -6,7 +6,7 @@
 /*   By: jruiz-ro <jruiz-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 15:58:41 by jruiz-ro          #+#    #+#             */
-/*   Updated: 2021/03/10 20:21:18 by jruiz-ro         ###   ########.fr       */
+/*   Updated: 2021/03/10 20:35:18 by jruiz-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,35 @@ int ft_ptoint(int *p)
 	int n;
 	n = *p;
 	return(n);
+}
+
+void moveToFront(t_list **head_ref)
+{
+    /* If linked list is empty, or it contains only one node,
+      then nothing needs to be done, simply return */
+    if (*head_ref == NULL || (*head_ref)->next == NULL)
+        return;
+
+    /* Initialize second last and last pointers */
+    struct Node *secLast = NULL;
+    struct Node *last = *head_ref;
+
+    /*After this loop secLast contains address of second last
+    node and last contains address of last node in Linked List */
+    while (last->next != NULL)
+    {
+        secLast = last;
+        last = last->next;
+    }
+
+    /* Set the next of second last as NULL */
+    secLast->next = NULL;
+
+    /* Set next of last as head node */
+    last->next = *head_ref;
+
+    /* Change the head pointer to point to last node now */
+    *head_ref = last;
 }
 
 void print_list(t_list *a, t_list *b)
@@ -121,7 +150,47 @@ void ft_pb(t_list **a, t_list **b)
 	print_list(*a,*b);
 }
 
+void ft_ra(t_list **a)
+{
+	t_list *temp;
+	t_list	*p;
 
+	p = *a;
+	temp = ft_lstnew(p->content);
+	ft_lstadd_back(a, temp);
+	delete_first_node(a);
+	print_list(*a, NULL);
+}
+
+void ft_rb(t_list **a)
+{
+	t_list *temp;
+	t_list	*p;
+
+	p = *a;
+	temp = ft_lstnew(p->content);
+	ft_lstadd_back(a, temp);
+	delete_first_node(a);
+	print_list(NULL, *a);
+}
+
+void ft_rr(t_list **a, t_list **b)
+{
+	ft_ra(a);
+	ft_rb(b);
+}
+
+void ft_rra(t_list **a)
+{
+	t_list *temp;
+	t_list	*p;
+
+	p = *a;
+	temp = ft_lstlast(a)(p->content);
+	ft_lstadd_back(a, temp);
+	delete_first_node(a);
+	print_list(NULL, *a);
+}
 
 int main(int argc, char **argv)
 {
@@ -156,7 +225,8 @@ int main(int argc, char **argv)
 
 	print_list(a, b);
 //	ft_sa(a);
-	ft_pb(&a, &b);
+//	ft_pb(&a, &b);
+	ft_rr(&a, &b);
 	printf("\n");
 	print_list(a,b);
 	//if (argc == 4)
