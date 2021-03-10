@@ -6,7 +6,7 @@
 /*   By: jruiz-ro <jruiz-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 15:58:41 by jruiz-ro          #+#    #+#             */
-/*   Updated: 2021/03/10 17:53:33 by jruiz-ro         ###   ########.fr       */
+/*   Updated: 2021/03/10 20:21:18 by jruiz-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int ft_ptoint(int *p)
 void print_list(t_list *a, t_list *b)
 {
 
-    printf("--------------------------------- \n");
+    printf("---------------------------------------- \n");
 
     while(a || b)
     {
@@ -60,26 +60,6 @@ void delete_first_node(t_list **head) {
   /*Deleting the first node*/
   free(tmp);
 }
-void insert_front(t_list **head, int value) {
-
-    t_list * new_node = NULL;
-
-    /*Allocating memory for the new node*/
-    new_node = (t_list *)malloc(sizeof(t_list));
-
-    if (new_node == NULL)
-    {
-        printf("Failed to insert element. Out of memory");
-    }
-
-    new_node->content = value;
-
-    /*Pointing the new node to where head is currently pointing to*/
-    new_node->next = *head;
-
-    /*Pointing head to new node.*/
-    *head = new_node;
-}
 
 void ft_swap(int* a, int* b)
 {
@@ -96,7 +76,7 @@ void ft_sa(t_list *t)
 
 	if (temp != NULL && temp->next != NULL)
 	{
-	ft_swap(&temp->content, &temp->next->content);
+	ft_swap(temp->content, temp->next->content);
 	temp = temp->next->next;
 	}
 }
@@ -108,7 +88,7 @@ void ft_sb(t_list *t)
 
 	if (temp != NULL && temp->next != NULL)
 	{
-	ft_swap(&temp->content, &temp->next->content);
+	ft_swap(temp->content, temp->next->content);
 	}
 }
 void ft_ss(t_list *a, t_list *b)
@@ -117,10 +97,28 @@ void ft_ss(t_list *a, t_list *b)
 	ft_sb(b);
 }
 
-void ft_pa(t_list *a, t_list *b)
+void ft_pa(t_list **a, t_list **b)
 {
-	insert_front(b, ft_ptoint(a->content));
-	//delete_first_node(a);
+	t_list *temp;
+	t_list	*p;
+
+	p = *b;
+	temp = ft_lstnew(p->content);
+	ft_lstadd_front(a, temp);
+	delete_first_node(b);
+	print_list(*a,*b);
+}
+
+void ft_pb(t_list **a, t_list **b)
+{
+	t_list *temp;
+	t_list	*p;
+
+	p = *a;
+	temp = ft_lstnew(p->content);
+	ft_lstadd_front(b, temp);
+	delete_first_node(a);
+	print_list(*a,*b);
 }
 
 
@@ -130,12 +128,14 @@ int main(int argc, char **argv)
 	t_list *a;
 	t_list *b;
 	t_list *temp;
+	t_list *temp2;
 
 	int aux[10000];
 	void (*f)();
 
 	int i;
-	i = 6 ;
+	int j;
+	i = 1 ;
 	while (i < argc)
 		{
 			aux[i] = ft_atoi(argv[i]);
@@ -143,17 +143,20 @@ int main(int argc, char **argv)
 			ft_lstadd_back(&a, temp);
 			i++;
 		}
-	i = 1;
-	while (i < argc)
+
+	ft_lstadd_back(&b, NULL);
+	j = 0;
+	while (j < 4)
 		{
-			aux[i] = ft_atoi(argv[i]);
-			temp = ft_lstnew(&aux[i]);
-			ft_lstadd_back(&b, temp);
-			i++;
+			aux[j] = ft_atoi(argv[j]);
+			temp2 = ft_lstnew(&aux[j]);
+			ft_lstadd_back(&b, temp2);
+			j++;
 		}
-	print_list(a,b);
-	ft_pa(a, b);
-//	ft_ss(a,b);
+
+	print_list(a, b);
+//	ft_sa(a);
+	ft_pb(&a, &b);
 	printf("\n");
 	print_list(a,b);
 	//if (argc == 4)

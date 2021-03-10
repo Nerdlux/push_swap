@@ -6,7 +6,7 @@
 #    By: jruiz-ro <jruiz-ro@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/25 11:29:27 by jruiz-ro          #+#    #+#              #
-#    Updated: 2021/03/08 17:04:41 by jruiz-ro         ###   ########.fr        #
+#    Updated: 2021/03/10 19:40:24 by jruiz-ro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ all: ${NAME}
 bonus:		${NAME}
 
 debug: 		${HEADERS}
-			cd libft && make && cd .. $(MAKE) all
+			make -C $(MAKE) all
 			${CC} -g ${FLAGS} ${LIBFT} ${SRCS} -o ${NAME}
 
 clean:
