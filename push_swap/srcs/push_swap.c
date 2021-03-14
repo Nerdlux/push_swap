@@ -3,30 +3,65 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jruiz-ro <jruiz-ro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jruiz-ro <rpunet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 15:58:41 by jruiz-ro          #+#    #+#             */
-/*   Updated: 2021/03/12 17:25:42 by jruiz-ro         ###   ########.fr       */
+/*   Updated: 2021/03/14 09:54:19 by jruiz-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 #include "../libft/libft.h"
 
+/*
+*
+*/
+void insertionSort(int arr[])
+{
+    int i;
+	int	key;
+	int	j;
+	int n;
+
+	n = 0;
+	while (arr[n] != 0)
+		n++;
+
+	i = 1;
+	while (i < n)
+    {
+        key = arr[i];
+        j = i - 1;
+        while (j >= 0 && arr[j] > key)
+        {
+            arr[j + 1] = arr[j];
+            j = j - 1;
+        }
+        arr[j + 1] = key;
+		i++;
+    }
+}
+
+
 int ft_ptoint(int *p)
 {
+	int n;
 
-	long int n;
 	n = *p;
 	return(n);
 }
 
-void ft_swap(int* a, int* b)
+void	ft_lstswap(t_list **s)
 {
-    int temp;
-    temp = *a;
-    *a = *b;
-    *b = temp;
+	t_list	*tmp;
+
+	if (*s && (*s)->next)
+	{
+		tmp = (*s)->next;
+		(*s)->next = tmp->next;
+		tmp->next = *s;
+		*s = tmp;
+	}
 }
 
 int main(int argc, char **argv)
@@ -34,22 +69,19 @@ int main(int argc, char **argv)
 	t_list *a;
 	t_list *b;
 	t_list *temp;
-	t_list *temp2;
 
-	int aux[argc][10];
-	int aux2[argc][10];
-	void (*f)();
+	int aux[10000];
 
 	int i;
-	int j;
 	i = 1 ;
 
 	ft_lstadd_back(&a, NULL);
 	ft_lstadd_back(&b, NULL);
+
 	while (i < argc)
 		{
-			aux[i][0] = ft_atoi(argv[i]);
-			temp = ft_lstnew(&aux[i][0]);
+			aux[i]= ft_atoi(argv[i]);
+			temp = ft_lstnew(&aux[i]);
 			ft_lstadd_back(&a, temp);
 			i++;
 		}
@@ -67,22 +99,14 @@ int main(int argc, char **argv)
 	*/
 
 	char *call;
-	call = "rr";
+	call = "pa";
+
 	print_list(a, b);
 	printf("\n");
 
-	/*
-	ft_caller(call, &a, &b, ft_strlen(call));
+//	if (argc <= 6)
+		ft_5numbers(&a, &b);
 	print_list(a, b);
-		ft_caller(call, &a, &b, ft_strlen(call));
-		print_list(a, b);
-			ft_caller(call, &a, &b, ft_strlen(call));
-			print_list(a, b);
-	*/
-
-	//if (argc == 4)
-	ft_3numbers(sa, b);
-	print_list(a, b);
-
+	printf("-----------------%d---------------- \n", argc);
 	return 0;
 }

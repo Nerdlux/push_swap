@@ -6,7 +6,7 @@
 /*   By: jruiz-ro <jruiz-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 20:27:05 by acortes-          #+#    #+#             */
-/*   Updated: 2021/03/12 15:46:07 by jruiz-ro         ###   ########.fr       */
+/*   Updated: 2021/03/14 10:14:29 by jruiz-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_ra(t_list **a)
 	t_list	*p;
 
 	if(a == NULL || *a == NULL)
- 		error_exit("Error");
+ 		error_exit("No A stack to rotate");
 	p = *a;
 	temp = ft_lstnew(p->content);
 	ft_lstadd_back(a, temp);

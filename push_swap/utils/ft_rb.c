@@ -6,7 +6,7 @@
 /*   By: jruiz-ro <jruiz-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 20:27:12 by acortes-          #+#    #+#             */
-/*   Updated: 2021/03/11 19:49:02 by jruiz-ro         ###   ########.fr       */
+/*   Updated: 2021/03/14 10:14:27 by jruiz-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_rb(t_list **b)
 	t_list	*p;
 
 	if(b == NULL || *b == NULL)
- 		error_exit("Error");
+ 		error_exit("No B pile to rotate");
 	p = *b;
 	temp = ft_lstnew(p->content);
 	ft_lstadd_back(b, temp);

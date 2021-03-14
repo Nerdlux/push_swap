@@ -6,7 +6,7 @@
 /*   By: jruiz-ro <jruiz-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 15:05:16 by acortes-          #+#    #+#             */
-/*   Updated: 2021/03/12 16:54:48 by jruiz-ro         ###   ########.fr       */
+/*   Updated: 2021/03/14 13:19:03 by jruiz-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 void	print_list(t_list *a, t_list *b)
 {
 
-    int		x;
 	char	out[100];
 	int		separator;
 
@@ -34,11 +33,24 @@ void	print_list(t_list *a, t_list *b)
 		printf("\t\t\t\t\t");
 		if (b)
 		{
-			printf("%d", ft_ptoint(&b->content[0]));
+			printf("%d", ft_ptoint(b->content));
 			b = b->next;
 		}
 	printf("\n");
     }
-    printf("END\n");
 }
 
+int		ft_check_sort(t_list *a, t_list *b)
+{
+	if (b || !a)
+		return (0);
+	if (!a->next)
+		return (1);
+	while (a->next)
+	{
+		if (*(int*)(a->content) > *(int*)(a->next->content))
+			return (0);
+		a = a->next;
+	}
+	return (1);
+}
