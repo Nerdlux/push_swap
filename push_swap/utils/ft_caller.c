@@ -6,7 +6,7 @@
 /*   By: jruiz-ro <jruiz-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 17:49:00 by jruiz-ro          #+#    #+#             */
-/*   Updated: 2021/03/14 14:23:25 by jruiz-ro         ###   ########.fr       */
+/*   Updated: 2021/03/15 16:57:34 by jruiz-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 void	ft_caller(char *call, t_list **a, t_list **b, int i)
 {
-	static int x;
+//	static int x;
 
 	printf("%s \n",call);
 
@@ -45,5 +45,6 @@ void	ft_caller(char *call, t_list **a, t_list **b, int i)
 		ft_rrb(b);
 	else if (call[0] == 'r' && call[1] == 'r' && call[2] == 'r' && i == 3)
 		ft_rrr(a, b);
-	printf("Lo ha hecho en -> %d \n", ++x);
+//	printf("Lo ha hecho en -> %d \n", ++x);
+//		print_list(*a,*b);
 }

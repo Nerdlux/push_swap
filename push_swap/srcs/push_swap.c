@@ -70,6 +70,8 @@ int main(int argc, char **argv)
 	t_list *b;
 	t_list *temp;
 
+
+
 	int aux[10000];
 
 	int i;
@@ -101,12 +103,17 @@ int main(int argc, char **argv)
 	char *call;
 	call = "pa";
 
-	print_list(a, b);
-	printf("\n");
+//	print_list(a, b);
+	//printf("\n");
 
+
+	if (argc == 4)
+		ft_3numbers(&a, &b);
 //	if (argc <= 6)
+//		ft_5numbers_beta(&a, &b);
 		ft_5numbers(&a, &b);
-	print_list(a, b);
-	printf("-----------------%d---------------- \n", argc);
+
+//	print_list(a, b);
 	return 0;
 }
+

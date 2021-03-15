@@ -6,7 +6,7 @@
 /*   By: jruiz-ro <jruiz-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 15:58:36 by jruiz-ro          #+#    #+#             */
-/*   Updated: 2021/03/14 13:42:57 by jruiz-ro         ###   ########.fr       */
+/*   Updated: 2021/03/15 17:58:21 by jruiz-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,16 @@
 #include "libft/libft.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 
-typedef struct	s_struct
+typedef struct	s_utils
 {
 	int		*a;
 	int		*b;
 	int		size_a;
 	int		size_b;
-}				t_struct;
+}				t_utils;
 
 // SRCS
 
@@ -52,6 +53,7 @@ void	print_list(t_list *a, t_list *b);
 int		ft_ptoint(int *p);
 void	ft_lstswap(t_list **s);
 t_list	*ft_lst_min(t_list *a, int *pos);
+t_list	*ft_lst_max(t_list *a, int *pos);
 int		ft_check_sort(t_list *a, t_list *b);
 
 void	ft_caller(char *call, t_list **a, t_list **b, int i);
@@ -59,8 +61,11 @@ void	ft_caller2(char *call, t_list **a, t_list **b, int i);
 void	ft_caller3(char *call, t_list **a, t_list **b, int i);
 void	ft_caller4(char *call, t_list **a, t_list **b, int i);
 void	insertionSort(int arr[]);
+int		ft_median(int *list);
 
 void	ft_3numbers(t_list **a, t_list **b);
 void	ft_5numbers(t_list **a, t_list **b);
+void ft_5numbers_beta(t_list **a, t_list **b);
+
 
 #endif
