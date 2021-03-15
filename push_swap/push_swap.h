@@ -13,7 +13,7 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#define GLOBALB 0;
+#define GLOBALB 0
 
 #include "libft/libft.h"
 #include <stdio.h>
