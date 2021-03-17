@@ -69,16 +69,19 @@ int main(int argc, char **argv)
 	t_list *a;
 	t_list *b;
 	t_list *temp;
+	int average;
 
 
 
 	int aux[10000];
+	average = 0;
 
 	int i;
 	i = 1 ;
 
 	ft_lstadd_back(&a, NULL);
 	ft_lstadd_back(&b, NULL);
+
 
 	while (i < argc)
 		{
@@ -87,7 +90,6 @@ int main(int argc, char **argv)
 			ft_lstadd_back(&a, temp);
 			i++;
 		}
-
 
 	/*
 	j = 1;
@@ -102,11 +104,11 @@ int main(int argc, char **argv)
 
 	char *call;
 	call = "pa";
+//	int ordered[10] ={1, 2, 3, 4, 5, 6};
 
+/*
 //	print_list(a, b);
 	//printf("\n");
-
-
 	if (argc == 4)
 		ft_3numbers(&a, &b);
 //	if (argc <= 6)
@@ -115,5 +117,10 @@ int main(int argc, char **argv)
 
 //	print_list(a, b);
 	return 0;
+*/
+ft_pb(&a,&b);
+average = ft_average(a, ft_lstsize(a));
+
+printf("%d \n", average);
 }
 

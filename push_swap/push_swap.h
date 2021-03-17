@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jruiz-ro <jruiz-ro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jruiz-ro <jruiz-ro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 15:58:36 by jruiz-ro          #+#    #+#             */
-/*   Updated: 2021/03/15 17:58:21 by jruiz-ro         ###   ########.fr       */
+/*   Updated: 2021/03/17 13:11:30 by jruiz-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,16 @@ void	ft_lstswap(t_list **s);
 t_list	*ft_lst_min(t_list *a, int *pos);
 t_list	*ft_lst_max(t_list *a, int *pos);
 int		ft_check_sort(t_list *a, t_list *b);
+int		ft_check_last(t_list **a, t_list *b, int *ordered);
 
 void	ft_caller(char *call, t_list **a, t_list **b, int i);
 void	ft_caller2(char *call, t_list **a, t_list **b, int i);
 void	ft_caller3(char *call, t_list **a, t_list **b, int i);
 void	ft_caller4(char *call, t_list **a, t_list **b, int i);
 void	insertionSort(int arr[]);
+
 int		ft_median(int *list);
+long	ft_average(t_list *a, int count);
 
 void	ft_3numbers(t_list **a, t_list **b);
 void	ft_5numbers(t_list **a, t_list **b);
