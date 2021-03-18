@@ -6,7 +6,7 @@
 /*   By: jruiz-ro <jruiz-ro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 15:02:05 by jruiz-ro          #+#    #+#             */
-/*   Updated: 2021/03/17 14:04:03 by jruiz-ro         ###   ########.fr       */
+/*   Updated: 2021/03/17 17:00:09 by jruiz-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,15 @@ long	ft_average(t_list *a, int count)
 	return (result);
 }
 
+
+// empezamos en 1 para evitar el null que pasa la funcion de sort...
 int	ft_check_last(t_list **a, t_list *to_check, int *ordered)
 {
 	int i;
 	t_list aux;
 
 	aux = *ft_lstlast(*a);
-	i = 0;
+	i = 1;
 
 	while (ft_ptoint((to_check)->content) != ordered[i])
 		i++;

@@ -16,32 +16,36 @@
 /*
 *
 */
-void insertionSort(int arr[])
+int	*insertionSort(int arr[])
 {
-    int i;
-	int	key;
+	int	n;
+	int	i;
 	int	j;
-	int n;
+	int tmp;
 
-	n = 0;
-	while (arr[n] != 0)
+	n = 1;
+	while(arr[n] != 0)
 		n++;
 
-	i = 1;
-	while (i < n)
-    {
-        key = arr[i];
-        j = i - 1;
-        while (j >= 0 && arr[j] > key)
-        {
-            arr[j + 1] = arr[j];
-            j = j - 1;
-        }
-        arr[j + 1] = key;
-		i++;
-    }
+	i = 0;
+	j = 0;
+	while(i < n)
+	{
+		j = i + 1;
+		while(j < n)
+		{
+			if (arr[j] < arr[i])
+			{
+				tmp = arr[i];
+				arr[i] = arr[j];
+				arr[j] = tmp;
+			}
+		j++;
+		}
+	i++;
+	}
+	return(arr);
 }
-
 
 int ft_ptoint(int *p)
 {
@@ -70,6 +74,9 @@ int main(int argc, char **argv)
 	t_list *b;
 	t_list *temp;
 	int average;
+	int ordered[10000];
+	int j;
+
 
 
 
@@ -78,6 +85,8 @@ int main(int argc, char **argv)
 
 	int i;
 	i = 1 ;
+	j = 0;
+
 
 	ft_lstadd_back(&a, NULL);
 	ft_lstadd_back(&b, NULL);
@@ -85,29 +94,30 @@ int main(int argc, char **argv)
 
 	while (i < argc)
 		{
-			aux[i]= ft_atoi(argv[i]);
-			temp = ft_lstnew(&aux[i]);
+			aux[j]= ft_atoi(argv[i]);
+			temp = ft_lstnew(&aux[j]);
 			ft_lstadd_back(&a, temp);
 			i++;
-		}
-
-	/*
-	j = 1;
-	while (j < 5)
-		{
-			aux2[j][0] = 5;
-			temp2 = ft_lstnew(&aux2[j][0]);
-			ft_lstadd_back(&b, temp2);
 			j++;
 		}
-	*/
 
-	char *call;
-	call = "pa";
+while(aux[i] != 0)
+{
+	ordered[i] = aux[i];
+	i++;
+}
+	print_list(a, b);
+
+	insertionSort(ordered);
+	print_list(a, b);
+//ft_bignumbers(&a, &b, aux);
+int n;
+n = 0;
+
+//print_list(a, b);
 //	int ordered[10] ={1, 2, 3, 4, 5, 6};
 
-/*
-//	print_list(a, b);
+
 	//printf("\n");
 	if (argc == 4)
 		ft_3numbers(&a, &b);
@@ -115,12 +125,9 @@ int main(int argc, char **argv)
 //		ft_5numbers_beta(&a, &b);
 		ft_5numbers(&a, &b);
 
-//	print_list(a, b);
+	print_list(a, b);
 	return 0;
-*/
-ft_pb(&a,&b);
-average = ft_average(a, ft_lstsize(a));
 
-printf("%d \n", average);
+
 }
 

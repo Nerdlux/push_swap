@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_5numbers.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jruiz-ro <jruiz-ro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jruiz-ro <jruiz-ro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 11:37:24 by jruiz-ro          #+#    #+#             */
-/*   Updated: 2021/03/15 17:10:59 by jruiz-ro         ###   ########.fr       */
+/*   Updated: 2021/03/17 16:48:53 by jruiz-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void ft_5numbers(t_list **a, t_list **b)
 	size = ft_lstsize(*a);
 	while (*a)
 	{
-		min = ft_lst_min(*a, &pos);
+		min = ft_lst_min(*a, &pos, size);
 		while (*a != min && (int)(*a)->content != (int)(min)->content)
 		{
 			if (pos > (float)size / 2 )
