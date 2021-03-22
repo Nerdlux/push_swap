@@ -113,7 +113,7 @@ while(aux[i] != 0)
 
 	if (argc == 4)
 		ft_3numbers(&a, &b);
-//	if (argc <= 6)
+	if (argc <= 13)
 		ft_5numbers(&a, &b);
 
 	print_list(a, b);

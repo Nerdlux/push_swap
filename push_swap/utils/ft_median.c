@@ -50,18 +50,18 @@ long	ft_average(t_list *a, int count)
 }
 
 
-// empezamos en 1 para evitar el null que pasa la funcion de sort...
 int	ft_check_last(t_list **a, t_list *to_check, int *ordered)
 {
 	int i;
 	t_list aux;
 
 	aux = *ft_lstlast(*a);
-	i = 1;
+	i = 0;
 
+	if (ft_ptoint((to_check)->content) == ordered[i])
+		return(1);
 	while (ft_ptoint((to_check)->content) != ordered[i])
 		i++;
-
 	if (ft_ptoint(((aux).content)) == ordered[i - 1])
 		return(1);
 	else

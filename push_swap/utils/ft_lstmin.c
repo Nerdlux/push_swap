@@ -88,3 +88,4 @@ int	ft_check_order(t_list *a, int *ordered)
 	}
 	return(1);
 }
+
