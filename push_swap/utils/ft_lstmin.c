@@ -6,7 +6,7 @@
 /*   By: jruiz-ro <jruiz-ro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 11:41:26 by jruiz-ro          #+#    #+#             */
-/*   Updated: 2021/03/17 16:49:56 by jruiz-ro         ###   ########.fr       */
+/*   Updated: 2021/03/22 12:55:38 by jruiz-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,24 @@ t_list	*ft_lst_max(t_list *a, int *pos, int counter)
 		a = a->next;
 	}
 	return (a);
+}
+
+int	ft_check_order(t_list *a, int *ordered)
+{
+	int i;
+
+	i = 0;
+	while(a)
+	{
+		if(ft_ptoint(a->content) != ordered[i])
+		{
+			return(0);
+		}
+		else
+		{
+			a = a->next;
+			i++;
+		}
+	}
+	return(1);
 }

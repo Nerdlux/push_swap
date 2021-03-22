@@ -101,28 +101,19 @@ int main(int argc, char **argv)
 			j++;
 		}
 
+i = 0;
 while(aux[i] != 0)
 {
 	ordered[i] = aux[i];
 	i++;
 }
-	print_list(a, b);
-
 	insertionSort(ordered);
+
 	print_list(a, b);
-//ft_bignumbers(&a, &b, aux);
-int n;
-n = 0;
 
-//print_list(a, b);
-//	int ordered[10] ={1, 2, 3, 4, 5, 6};
-
-
-	//printf("\n");
 	if (argc == 4)
 		ft_3numbers(&a, &b);
 //	if (argc <= 6)
-//		ft_5numbers_beta(&a, &b);
 		ft_5numbers(&a, &b);
 
 	print_list(a, b);

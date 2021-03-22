@@ -6,7 +6,7 @@
 /*   By: jruiz-ro <jruiz-ro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 15:58:36 by jruiz-ro          #+#    #+#             */
-/*   Updated: 2021/03/18 11:42:07 by jruiz-ro         ###   ########.fr       */
+/*   Updated: 2021/03/22 12:33:13 by jruiz-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void	ft_caller2(char *call, t_list **a, t_list **b, int i);
 void	ft_caller3(char *call, t_list **a, t_list **b, int i);
 void	ft_caller4(char *call, t_list **a, t_list **b, int i);
 int		*insertionSort(int arr[]);
+int		ft_check_order(t_list *a, int *ordered);
 
 int		ft_median(int *list);
 long	ft_average(t_list *a, int count);
