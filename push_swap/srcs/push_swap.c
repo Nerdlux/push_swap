@@ -73,6 +73,7 @@ int main(int argc, char **argv)
 	t_list *a;
 	t_list *b;
 	t_list *temp;
+	t_utils *utils;
 	int average;
 	int ordered[10000];
 	int j;
@@ -104,10 +105,10 @@ int main(int argc, char **argv)
 i = 0;
 while(aux[i] != 0)
 {
-	ordered[i] = aux[i];
+	utils->ordered[i] = aux[i];
 	i++;
 }
-	insertionSort(ordered);
+	insertionSort(utils->ordered);
 
 	print_list(a, b);
 

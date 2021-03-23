@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_3numbers.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jruiz-ro <jruiz-ro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jruiz-ro <jruiz-ro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 16:01:13 by jruiz-ro          #+#    #+#             */
-/*   Updated: 2021/03/15 16:05:29 by jruiz-ro         ###   ########.fr       */
+/*   Updated: 2021/03/23 13:13:10 by jruiz-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,24 +30,24 @@ void	ft_3numbers(t_list **a, t_list **b)
 		}
 	if (aux[0] > aux[1] && aux[1] < aux[2] && aux[0] < aux[2])
 		{
-			ft_caller("sa", a, b, ft_strlen("sa"));
+			ft_caller("sa", a, b, 2);
 		}
 	if (aux[0] > aux[1] && aux[1] > aux[2] && aux[0] > aux[2])
 	{
-		ft_caller("sa", a, b, ft_strlen("sa"));
-		ft_caller("rra", a, b, ft_strlen("rra"));
+		ft_caller("sa", a, b, 2);
+		ft_caller("rra", a, b, 3);
 	}
 	if (aux[0] > aux[1] && aux[1] < aux[2] && aux[0] > aux[2])
 		{
-		ft_caller("ra", a, b, ft_strlen("ra"));
+		ft_caller("ra", a, b, 2);
 		}
 	if (aux[0] < aux[1] && aux[1] > aux[2] && aux[0] < aux[2])
 	{
-		ft_caller("sa", a, b, ft_strlen("sa"));
-		ft_caller("ra", a, b, ft_strlen("ra"));
+		ft_caller("sa", a, b, 2);
+		ft_caller("ra", a, b, 2);
 	}
 	if (aux[0] < aux[1] && aux[1] > aux[2] && aux[0] > aux[2])
 		{
-		ft_caller("rra", a, b, ft_strlen("rra"));
+		ft_caller("rra", a, b, 3);
 		}
 }

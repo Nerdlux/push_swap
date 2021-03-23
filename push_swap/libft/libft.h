@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jruiz-ro <jruiz-ro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jruiz-ro <jruiz-ro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 16:46:37 by jruiz-ro          #+#    #+#             */
-/*   Updated: 2021/03/11 19:25:12 by jruiz-ro         ###   ########.fr       */
+/*   Updated: 2021/03/23 12:54:05 by jruiz-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@
 typedef struct s_list
 {
 	void			*content;
-	void			*order;
 	struct s_list	*next;
 }				t_list;
 

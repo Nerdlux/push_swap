@@ -6,7 +6,7 @@
 /*   By: jruiz-ro <jruiz-ro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 15:58:36 by jruiz-ro          #+#    #+#             */
-/*   Updated: 2021/03/22 12:33:13 by jruiz-ro         ###   ########.fr       */
+/*   Updated: 2021/03/23 12:37:23 by jruiz-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,12 @@
 
 typedef struct	s_utils
 {
-	int		*a;
-	int		*b;
 	int		size_a;
 	int		size_b;
+	int		*ordered;
+	int		ok;
 }				t_utils;
+
 
 // SRCS
 
