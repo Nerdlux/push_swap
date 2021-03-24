@@ -6,14 +6,12 @@
 /*   By: jruiz-ro <jruiz-ro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 15:58:36 by jruiz-ro          #+#    #+#             */
-/*   Updated: 2021/03/24 12:53:47 by jruiz-ro         ###   ########.fr       */
+/*   Updated: 2021/03/24 17:34:38 by jruiz-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-
-#define GLOBALB 0
 
 #include "libft/libft.h"
 #include <stdio.h>
@@ -81,8 +79,14 @@ void 	ft_5numbers_beta(t_list **a, t_list **b);
 
 int		ft_get_max(t_list *a, int limit);
 int		ft_get_min(t_list *a, int limit);
+int		ft_get_size(t_list *a, int limit);
 void	ft_smart_rotate(t_list **a, t_list **b);
 void	ft_get_max_to_a(t_list **a, t_list **b, t_utils *u);
-void	pw_split_to_a(t_list **a, t_list **b, t_utils *u, int avg, int size);
+void	ft_split_to_a(t_list **a, t_list **b, t_utils *u, int avg, int size);
+void	ft_split_to_b(t_list **a, t_list **b, int avg, int size);
+
+void	ft_backtrack(t_list **a, t_list **b, int limit);
+void	ft_push_swap_backtrack(t_list **a, t_list **b, t_utils *u);
+void	ft_backtrack_split(t_list **a, t_list **b, t_utils *u, int limit);
 
 #endif

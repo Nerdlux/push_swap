@@ -6,7 +6,7 @@
 /*   By: jruiz-ro <jruiz-ro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 12:39:16 by jruiz-ro          #+#    #+#             */
-/*   Updated: 2021/03/24 12:56:56 by jruiz-ro         ###   ########.fr       */
+/*   Updated: 2021/03/24 17:34:27 by jruiz-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "../libft/libft.h"
 
 
-void	pw_backtrack(t_list **a, t_list **b, int limit)
+void	ft_backtrack(t_list **a, t_list **b, int limit)
 {
 	while (ARRAY_DATA(a, a->size - 1) <= limit &&	ARRAY_DATA(a, a->size - 1) != 1)
 	{
@@ -27,7 +27,7 @@ void	pw_backtrack(t_list **a, t_list **b, int limit)
 		ft_push_swap(a, b);
 }
 
-void	ft_backtrack_split(t_list **a, t_list **b, int limit)
+void	ft_backtrack_split(t_list **a, t_list **b, t_utils *u, int limit)
 {
 	int c;
 	int i;
@@ -35,7 +35,7 @@ void	ft_backtrack_split(t_list **a, t_list **b, int limit)
 
 	c = 0;
 	avg = ft_average(a, limit);
-	while (ft_get_int(a) <= limit && ARRAY_DATA(a, a->size - 1) != 1)
+	while (ft_get_int(a) <= limit && ft_get_int(a) != u->ordered[0])
 	{
 		if (ft_get_int(a) >= avg)
 		{
@@ -51,12 +51,11 @@ void	ft_backtrack_split(t_list **a, t_list **b, int limit)
 			ft_caller("rrr", a, b, 3);
 		else
 			ft_caller("rra", a, b, 3);
-	if (ft_get_min(b, -1) == ARRAY_DATA(a, 0) + 1 && c > 0)
+	if (ft_check_last(a, ft_lst_min(b, NULL, __INT_MAX__), u) && c > 0)
 		ft_push_swap(a, b);
 }
 
-void
-	ft_push_swap_backtrack(t_list **a, t_list **b, t_utils *u)
+void	ft_push_swap_backtrack(t_list **a, t_list **b, t_utils *u)
 {
 	if (pw_is_sorted(a))
 		return ;
@@ -64,13 +63,13 @@ void
 	ft_push_swap(a, b);
 	if (pw_get_size(a, pw_get_max(a)) >= 20)
 	{
-		pw_backtrack_split(a, b, pw_get_max(a));
-		pw_backtrack_split(a, b, pw_get_max(a));
+		ft_backtrack_split(a, b, pw_get_max(a));
+		ft_backtrack_split(a, b, pw_get_max(a));
 	}
-	pw_backtrack(a, b, pw_get_max(a));
+	ft_backtrack(a, b, pw_get_max(a));
 }
 
-void	pw_(t_list **a, t_list **b, int avg, int size)
+void	ft_split_to_a(t_list **a, t_list **b, t_utils *u, int avg, int size)
 {
 	while (size-- > 0)
 	{
@@ -78,12 +77,11 @@ void	pw_(t_list **a, t_list **b, int avg, int size)
 			ft_get_max_to_a(a, b, u);
 		else
 		{
-			if (avg <= ARRAY_DATA(b, b->size - 1))
+			if (avg <= ft_get_int(*b))
 				ft_caller("pa", a, b, 2);
 			else
 			{
-				if (ARRAY_DATA(b, b->size - 1) == ARRAY_DATA(a, 0) + 1 ||
-					ARRAY_DATA(b, b->size - 1) == 1)
+				if (ft_check_last(*a, b, u))
 				{
 					ft_caller("pa", a, b, 2);
 					ft_caller("ra", a, b, 2);
@@ -95,15 +93,14 @@ void	pw_(t_list **a, t_list **b, int avg, int size)
 	}
 }
 
-void
-	pw_split_to_b(t_list **a, t_list **b, int avg, int size)
+void	ft_split_to_b(t_list **a, t_list **b, int avg, int size)
 {
 	int i;
 
 	i = 0;
 	while (i < size)
 	{
-		if (avg > ft_ptoint((*a)->content))
+		if (avg > ft_get_int(a))
 			ft_caller("pb", a, b, 2);
 		else
 			ft_caller("ra", a, b, 2);

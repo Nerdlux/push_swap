@@ -6,7 +6,7 @@
 /*   By: jruiz-ro <jruiz-ro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 15:02:05 by jruiz-ro          #+#    #+#             */
-/*   Updated: 2021/03/24 12:55:59 by jruiz-ro         ###   ########.fr       */
+/*   Updated: 2021/03/24 16:31:40 by jruiz-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ long	ft_average(t_list *a, int count)
 	long n;
 	float result;
 
-	if (count = -1)
+	if (count == -1)
 		count = __INT_MAX__;
 	n = 0;
 	x = 0;
@@ -68,4 +68,21 @@ int	ft_check_last(t_list **a, t_list *to_check, t_utils *utils)
 		return(1);
 	else
 		return (0);
+}
+
+int	ft_get_size(t_list *a, int limit)
+{
+	int		i;
+	t_list *d;
+
+	d = a;
+	if (d == NULL)
+		return (0);
+	i = 0;
+	while (ft_get_int(d) <= limit && d)
+	{
+		i++;
+		d = d->next;
+	}
+	return (i);
 }

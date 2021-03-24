@@ -73,9 +73,9 @@ int main(int argc, char **argv)
 	t_list *a;
 	t_list *b;
 	t_list *temp;
-	t_utils *utils;
+	t_utils *utils = NULL;
+
 	int average;
-	int ordered[10000];
 	int j;
 
 
@@ -83,7 +83,6 @@ int main(int argc, char **argv)
 
 	int aux[10000];
 	average = 0;
-
 	int i;
 	i = 1 ;
 	j = 0;
@@ -103,6 +102,7 @@ int main(int argc, char **argv)
 		}
 
 i = 0;
+
 while(aux[i] != 0)
 {
 	utils->ordered[i] = aux[i];
