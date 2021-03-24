@@ -6,7 +6,7 @@
 /*   By: jruiz-ro <jruiz-ro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 15:58:36 by jruiz-ro          #+#    #+#             */
-/*   Updated: 2021/03/23 12:37:23 by jruiz-ro         ###   ########.fr       */
+/*   Updated: 2021/03/24 12:53:47 by jruiz-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,12 @@ void	delete_first_node(t_list **head);
 void	delete_last_node(t_list **head);
 void	print_list(t_list *a, t_list *b);
 int		ft_ptoint(int *p);
+int		ft_get_int(t_list *a);
 void	ft_lstswap(t_list **s);
 t_list	*ft_lst_min(t_list *a, int *pos, int counter);
 t_list	*ft_lst_max(t_list *a, int *pos, int counter);
 int		ft_check_sort(t_list *a, t_list *b);
-int		ft_check_last(t_list **a, t_list *b, int *ordered);
+int		ft_check_last(t_list **a, t_list *to_check, t_utils *utils);
 
 void	ft_caller(char *call, t_list **a, t_list **b, int i);
 void	ft_caller2(char *call, t_list **a, t_list **b, int i);
@@ -73,5 +74,15 @@ void	ft_5numbers(t_list **a, t_list **b);
 void	ft_bignumbers(t_list **a, t_list **b, int *ordered);
 void 	ft_5numbers_beta(t_list **a, t_list **b);
 
+
+/*
+*	COSITAS NUEVAS
+*/
+
+int		ft_get_max(t_list *a, int limit);
+int		ft_get_min(t_list *a, int limit);
+void	ft_smart_rotate(t_list **a, t_list **b);
+void	ft_get_max_to_a(t_list **a, t_list **b, t_utils *u);
+void	pw_split_to_a(t_list **a, t_list **b, t_utils *u, int avg, int size);
 
 #endif

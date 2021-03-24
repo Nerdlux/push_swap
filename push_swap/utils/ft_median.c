@@ -6,7 +6,7 @@
 /*   By: jruiz-ro <jruiz-ro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 15:02:05 by jruiz-ro          #+#    #+#             */
-/*   Updated: 2021/03/17 17:00:09 by jruiz-ro         ###   ########.fr       */
+/*   Updated: 2021/03/24 12:55:59 by jruiz-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ long	ft_average(t_list *a, int count)
 	long n;
 	float result;
 
+	if (count = -1)
+		count = __INT_MAX__;
 	n = 0;
 	x = 0;
 	while (a && n < count)
@@ -50,7 +52,7 @@ long	ft_average(t_list *a, int count)
 }
 
 
-int	ft_check_last(t_list **a, t_list *to_check, int *ordered)
+int	ft_check_last(t_list **a, t_list *to_check, t_utils *utils)
 {
 	int i;
 	t_list aux;
@@ -58,11 +60,11 @@ int	ft_check_last(t_list **a, t_list *to_check, int *ordered)
 	aux = *ft_lstlast(*a);
 	i = 0;
 
-	if (ft_ptoint((to_check)->content) == ordered[i])
+	if (ft_ptoint((to_check)->content) == utils->ordered[i])
 		return(1);
-	while (ft_ptoint((to_check)->content) != ordered[i])
+	while (ft_ptoint((to_check)->content) != utils->ordered[i])
 		i++;
-	if (ft_ptoint(((aux).content)) == ordered[i - 1])
+	if (ft_ptoint(((aux).content)) == utils->ordered[i - 1])
 		return(1);
 	else
 		return (0);

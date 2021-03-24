@@ -6,7 +6,7 @@
 /*   By: jruiz-ro <jruiz-ro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 11:41:26 by jruiz-ro          #+#    #+#             */
-/*   Updated: 2021/03/22 12:55:38 by jruiz-ro         ###   ########.fr       */
+/*   Updated: 2021/03/23 16:18:10 by jruiz-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,3 +89,9 @@ int	ft_check_order(t_list *a, int *ordered)
 	return(1);
 }
 
+int	ft_get_int(t_list *a)
+{
+	int res;
+	res = ft_ptoint(a->content);
+	return (res);
+}
