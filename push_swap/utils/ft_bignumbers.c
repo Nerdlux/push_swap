@@ -6,15 +6,14 @@
 /*   By: jruiz-ro <jruiz-ro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 11:25:25 by jruiz-ro          #+#    #+#             */
-/*   Updated: 2021/03/24 17:34:51 by jruiz-ro         ###   ########.fr       */
+/*   Updated: 2021/03/25 12:07:00 by jruiz-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 #include "../libft/libft.h"
 
-void
-	ft_push_swap(t_list **a, t_list **b, t_utils *u)
+void	ft_push_swap(t_list **a, t_list **b, t_utils *u)
 {
 	int max;
 
@@ -27,21 +26,7 @@ void
 	ft_push_swap(a, b, u);
 	if (ft_get_size(*a, max) >= 20)
 		ft_backtrack_split(a, b, u, max);
-	ft_backtrack(a, b, max);
-}
-
-void	ft_push_swap_backtrack(t_list **a, t_list **b, t_utils *u)
-{
-	if (ft_check_sort(*a, *b))
-		return ;
-	ft_split_to_b(a, b, ft_average(*a, -1), ft_lstsize(*a));
-	ft_push_swap(a, b, u);
-	if (ft_get_size(*a, ft_get_max(*a, -1)) >= 20)
-	{
-		ft_backtrack_split(a, b, u, ft_get_max(*a, -1));
-		ft_backtrack_split(a, b, u, ft_get_max(*a, -1));
-	}
-	ft_backtrack(a, b, ft_get_max(*a, -1));
+	ft_backtrack(a, b, u, max);
 }
 
 void	ft_smart_rotate(t_list **a, t_list **b)
@@ -73,5 +58,3 @@ void	ft_get_max_to_a(t_list **a, t_list **b, t_utils *u)
 			ft_smart_rotate(b, a);
 	}
 }
-
-

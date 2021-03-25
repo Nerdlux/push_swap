@@ -3,19 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jruiz-ro <rpunet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jruiz-ro <jruiz-ro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 15:58:41 by jruiz-ro          #+#    #+#             */
-/*   Updated: 2021/03/14 09:54:19 by jruiz-ro         ###   ########.fr       */
+/*   Updated: 2021/03/25 14:06:22 by jruiz-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 #include "../libft/libft.h"
 
-/*
-*
-*/
 int	*insertionSort(int arr[])
 {
 	int	n;
@@ -23,7 +20,9 @@ int	*insertionSort(int arr[])
 	int	j;
 	int tmp;
 
-	n = 1;
+	if (!arr)
+		return(0);
+	n = 0;
 	while(arr[n] != 0)
 		n++;
 
@@ -73,12 +72,10 @@ int main(int argc, char **argv)
 	t_list *a;
 	t_list *b;
 	t_list *temp;
-	t_utils *utils = NULL;
+	t_utils *u;
 
 	int average;
 	int j;
-
-
 
 
 	int aux[10000];
@@ -91,33 +88,30 @@ int main(int argc, char **argv)
 	ft_lstadd_back(&a, NULL);
 	ft_lstadd_back(&b, NULL);
 
-
+	u = NULL;
 	while (i < argc)
 		{
 			aux[j]= ft_atoi(argv[i]);
+			u->ordered[j] = aux[j];
 			temp = ft_lstnew(&aux[j]);
 			ft_lstadd_back(&a, temp);
 			i++;
 			j++;
 		}
 
-i = 0;
+	insertionSort(u->ordered);
 
-while(aux[i] != 0)
-{
-	utils->ordered[i] = aux[i];
-	i++;
-}
-	insertionSort(utils->ordered);
 
-	print_list(a, b);
+//	print_list(a, b);
 
 	if (argc == 4)
 		ft_3numbers(&a, &b);
-	if (argc <= 13)
+	else if (argc <= 6)
 		ft_5numbers(&a, &b);
+	else
+		ft_push_swap_backtrack(&a, &b, u);
 
-	print_list(a, b);
+//	print_list(a, b);
 	return 0;
 
 
