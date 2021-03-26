@@ -6,12 +6,12 @@
 /*   By: jruiz-ro <jruiz-ro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 15:58:41 by jruiz-ro          #+#    #+#             */
-/*   Updated: 2021/03/25 14:06:22 by jruiz-ro         ###   ########.fr       */
+/*   Updated: 2021/03/26 17:02:37 by jruiz-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-#include "../libft/libft.h"
+
 
 int	*insertionSort(int arr[])
 {
@@ -74,12 +74,10 @@ int main(int argc, char **argv)
 	t_list *temp;
 	t_utils *u;
 
-	int average;
 	int j;
 
 
 	int aux[10000];
-	average = 0;
 	int i;
 	i = 1 ;
 	j = 0;
@@ -88,7 +86,8 @@ int main(int argc, char **argv)
 	ft_lstadd_back(&a, NULL);
 	ft_lstadd_back(&b, NULL);
 
-	u = NULL;
+	u = malloc(sizeof(t_utils));
+
 	while (i < argc)
 		{
 			aux[j]= ft_atoi(argv[i]);
@@ -101,8 +100,8 @@ int main(int argc, char **argv)
 
 	insertionSort(u->ordered);
 
-
 //	print_list(a, b);
+
 
 	if (argc == 4)
 		ft_3numbers(&a, &b);
@@ -113,6 +112,7 @@ int main(int argc, char **argv)
 
 //	print_list(a, b);
 	return 0;
+
 
 
 }

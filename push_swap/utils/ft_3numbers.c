@@ -6,12 +6,12 @@
 /*   By: jruiz-ro <jruiz-ro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 16:01:13 by jruiz-ro          #+#    #+#             */
-/*   Updated: 2021/03/25 14:06:24 by jruiz-ro         ###   ########.fr       */
+/*   Updated: 2021/03/26 11:01:32 by jruiz-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-#include "../libft/libft.h"
+
 
 void	ft_3numbers(t_list **a, t_list **b)
 {

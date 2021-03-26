@@ -6,16 +6,15 @@
 /*   By: jruiz-ro <jruiz-ro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 12:39:16 by jruiz-ro          #+#    #+#             */
-/*   Updated: 2021/03/25 12:11:16 by jruiz-ro         ###   ########.fr       */
+/*   Updated: 2021/03/26 17:23:29 by jruiz-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-#include "../libft/libft.h"
-
 
 void	ft_backtrack(t_list **a, t_list **b, t_utils *u, int limit)
 {
+	if(a)
 	while (ft_get_int(*a) <= limit && ft_get_int(*a) != u->ordered[0])
 	{
 		if (ft_check_last(a, *a, u))
@@ -23,7 +22,9 @@ void	ft_backtrack(t_list **a, t_list **b, t_utils *u, int limit)
 		else
 			ft_caller("pb", a, b, 2);
 	}
-	if (ft_get_min(*b, -1) == ft_get_int(ft_lstlast(*a)))
+//	printf("---------%d\n",ft_check_next_position(ft_get_int(ft_lstlast(*a)), u));
+	if(b && a)
+	if (ft_get_min(*b, -1) == ft_check_next_position(ft_get_int(ft_lstlast(*a)), u))
 		ft_push_swap(a, b, u);
 }
 
@@ -35,8 +36,11 @@ void	ft_backtrack_split(t_list **a, t_list **b, t_utils *u, int limit)
 
 	c = 0;
 	avg = ft_average(*a, limit);
+
+	if(a)
 	while (ft_get_int(*a) <= limit && ft_get_int(*a) != u->ordered[0])
 	{
+			printf("%d tienes que ser <= limite(%d) y inferior a %d \n", ft_get_int(*a),limit, avg);
 		if (ft_get_int(*a) >= avg)
 		{
 			ft_caller("ra", a, b, 2);
@@ -47,10 +51,16 @@ void	ft_backtrack_split(t_list **a, t_list **b, t_utils *u, int limit)
 	}
 	i = -1;
 	while (++i < c)
-		if (ft_get_int(*b) != ft_get_max(*b, -1))
-			ft_caller("rrr", a, b, 3);
-		else
-			ft_caller("rra", a, b, 3);
+	{
+		if(b)
+		{
+			if (ft_get_int(*b) != ft_get_max(*b, -1))
+				ft_caller("rrr", a, b, 3);
+			else
+				ft_caller("rra", a, b, 3);
+		}
+	}
+	if(b)
 	if (ft_get_min(*b, -1) == ft_get_int(ft_lstlast(*a)) && c > 0)
 		ft_push_swap(a, b, u);
 }
@@ -61,51 +71,15 @@ void	ft_push_swap_backtrack(t_list **a, t_list **b, t_utils *u)
 		return ;
 	ft_split_to_b(a, b, ft_average(*a, -1), ft_lstsize(*a));
 	ft_push_swap(a, b, u);
-	if (ft_get_size(*a, ft_get_max(*a, -1)) >= 20)
+
+	if (ft_get_size(*a, u, ft_get_max(*a, -1)) >= 20)
 	{
+		printf("EL VALOR DE pw_get_max ES : %d \n", ft_get_max(*a, -1));
 		ft_backtrack_split(a, b, u, ft_get_max(*a, -1));
+		printf("EL VALOR DE pw_get_max ES : %d \n", ft_get_max(*a, -1));
 		ft_backtrack_split(a, b, u, ft_get_max(*a, -1));
 	}
 	ft_backtrack(a, b, u, ft_get_max(*a, -1));
-}
-
-void	ft_split_to_a(t_list **a, t_list **b, t_utils *u, int avg, int size)
-{
-	while (size-- > 0)
-	{
-		if (ft_lstsize(*b) < 13)
-			ft_get_max_to_a(a, b, u);
-		else
-		{
-			if (avg <= ft_get_int(*b))
-				ft_caller("pa", a, b, 2);
-			else
-			{
-				if (ft_check_last(a, *b, u))
-				{
-					ft_caller("pa", a, b, 2);
-					ft_caller("ra", a, b, 2);
-				}
-				else
-					ft_caller("rb", a , b, 2);
-			}
-		}
-	}
-}
-
-void	ft_split_to_b(t_list **a, t_list **b, int avg, int size)
-{
-	int i;
-
-	i = 0;
-	while (i < size)
-	{
-		if (avg > ft_get_int(*a))
-			ft_caller("pb", a, b, 2);
-		else
-			ft_caller("ra", a, b, 2);
-		i++;
-	}
 }
 
 int	ft_get_max(t_list *a, int limit)

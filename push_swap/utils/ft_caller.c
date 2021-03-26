@@ -6,12 +6,12 @@
 /*   By: jruiz-ro <jruiz-ro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 17:49:00 by jruiz-ro          #+#    #+#             */
-/*   Updated: 2021/03/25 14:06:29 by jruiz-ro         ###   ########.fr       */
+/*   Updated: 2021/03/26 17:04:52 by jruiz-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-#include "../libft/libft.h"
+
 
 /*
 * RECORDAR METER LEN AL USAR LA FUNCION EN EL PARAMETRO 4 i
@@ -19,8 +19,6 @@
 
 void	ft_caller(char *call, t_list **a, t_list **b, int i)
 {
-//	static int x;
-
 	printf("%s \n",call);
 
 	if (call[0] == 's' && call[1] == 'a' && i == 2)
@@ -45,6 +43,15 @@ void	ft_caller(char *call, t_list **a, t_list **b, int i)
 		ft_rrb(b);
 	else if (call[0] == 'r' && call[1] == 'r' && call[2] == 'r' && i == 3)
 		ft_rrr(a, b);
-//	printf("Lo ha hecho en -> %d \n", ++x);
-//		print_list(*a,*b);
+		print_list(*a,*b);
+}
+
+int	ft_check_next_position(int a, t_utils *u)
+{
+	int i;
+	i = 0;
+	while (u->ordered[i] != a)
+		i++;
+	i++;
+	return (u->ordered[i]);
 }

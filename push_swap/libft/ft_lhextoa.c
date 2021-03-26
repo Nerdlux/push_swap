@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lhextoa.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jruiz-ro <jruiz-ro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/20 18:29:53 by jruiz-ro          #+#    #+#             */
-/*   Updated: 2021/03/08 18:58:24 by jruiz-ro         ###   ########.fr       */
+/*   Updated: 2021/03/25 16:52:44 by adrian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ char	*ft_lhextoa(long unsigned int n)
 		return (0);
 	num[i] = '\0';
 	num[0] = '0';
-	if (nb < 0)
-		nb = ULONG_MAX - n;
 	while (i-- >= 0)
 	{
 		if (nb > 0)

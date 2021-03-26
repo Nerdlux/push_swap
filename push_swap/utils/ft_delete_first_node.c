@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_delete_first_node.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jruiz-ro <jruiz-ro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 15:06:47 by acortes-          #+#    #+#             */
-/*   Updated: 2021/03/14 11:16:51 by jruiz-ro         ###   ########.fr       */
+/*   Updated: 2021/03/25 17:15:06 by adrian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "../push_swap.h"
-#include "../libft/libft.h"
+
 
 void delete_last_node(t_list **head)
 {

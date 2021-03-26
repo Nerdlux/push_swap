@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_llutoa.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jruiz-ro <jruiz-ro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/19 18:22:10 by jruiz-ro          #+#    #+#             */
-/*   Updated: 2021/03/08 18:58:35 by jruiz-ro         ###   ########.fr       */
+/*   Updated: 2021/03/25 16:53:31 by adrian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ char	*ft_llutoa(long long unsigned int n)
 		return (0);
 	num[i] = '\0';
 	num[0] = '0';
-	if (nb < 0)
-		nb = ULLONG_MAX - n;
 	while (i-- >= 0)
 	{
 		if (nb > 0)

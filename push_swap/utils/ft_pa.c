@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pa.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jruiz-ro <jruiz-ro@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 20:26:54 by acortes-          #+#    #+#             */
-/*   Updated: 2021/03/25 14:06:33 by jruiz-ro         ###   ########.fr       */
+/*   Updated: 2021/03/25 18:19:28 by adrian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-#include "../libft/libft.h"
+
 
 void	ft_pa(t_list **a, t_list **b)
 {

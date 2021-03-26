@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_5numbers.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jruiz-ro <jruiz-ro@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 11:37:24 by jruiz-ro          #+#    #+#             */
-/*   Updated: 2021/03/25 14:06:26 by jruiz-ro         ###   ########.fr       */
+/*   Updated: 2021/03/25 17:15:06 by adrian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-#include "../libft/libft.h"
+
 
 void ft_5numbers(t_list **a, t_list **b)
 {
@@ -25,7 +25,7 @@ void ft_5numbers(t_list **a, t_list **b)
 	while (*a)
 	{
 		min = ft_lst_min(*a, &pos, size);
-		while (*a != min && (int)(*a)->content != (int)(min)->content)
+		while (*a != min && (*a)->content != (min)->content)
 		{
 			if (pos > (float)size / 2 )
 				ft_caller("rra", a, b, 3);

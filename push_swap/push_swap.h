@@ -6,7 +6,7 @@
 /*   By: jruiz-ro <jruiz-ro@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 15:58:36 by jruiz-ro          #+#    #+#             */
-/*   Updated: 2021/03/25 13:21:54 by jruiz-ro         ###   ########.fr       */
+/*   Updated: 2021/03/26 16:41:46 by jruiz-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int		*insertionSort(int arr[]);
 int		ft_check_order(t_list *a, int *ordered);
 
 int		ft_median(int *list);
-long	ft_average(t_list *a, int count);
+int		ft_average(t_list *a, int count);
 
 void	ft_3numbers(t_list **a, t_list **b);
 void	ft_5numbers(t_list **a, t_list **b);
@@ -77,7 +77,7 @@ void 	ft_5numbers_beta(t_list **a, t_list **b);
 
 int		ft_get_max(t_list *a, int limit);
 int		ft_get_min(t_list *a, int limit);
-int		ft_get_size(t_list *a, int limit);
+int		ft_get_size(t_list *a,t_utils *u, int limit);
 void	ft_smart_rotate(t_list **a, t_list **b);
 void	ft_get_max_to_a(t_list **a, t_list **b, t_utils *u);
 
@@ -89,5 +89,7 @@ void	ft_push_swap_backtrack(t_list **a, t_list **b, t_utils *u);
 void	ft_backtrack_split(t_list **a, t_list **b, t_utils *u, int limit);
 
 void	ft_push_swap(t_list **a, t_list **b, t_utils *u);
+int		ft_is_sorted(t_list *v);
 
+int	ft_check_next_position(int a, t_utils *u);
 #endif

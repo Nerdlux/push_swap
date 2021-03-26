@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_hextoa.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jruiz-ro <jruiz-ro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/20 16:39:24 by jruiz-ro          #+#    #+#             */
-/*   Updated: 2021/03/08 19:10:30 by jruiz-ro         ###   ########.fr       */
+/*   Updated: 2021/03/25 16:52:27 by adrian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ char	*ft_hextoa(unsigned int n)
 		return (0);
 	num[i] = '\0';
 	num[0] = '0';
-	if (nb < 0)
-		nb = UINT_MAX - n;
 	while (i-- >= 0)
 	{
 		if (nb > 0)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lutoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jruiz-ro <jruiz-ro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/19 18:21:58 by jruiz-ro          #+#    #+#             */
-/*   Updated: 2021/03/08 18:58:43 by jruiz-ro         ###   ########.fr       */
+/*   Updated: 2021/03/25 16:54:51 by adrian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,6 @@ int	ft_lulen(long unsigned int n)
 	int	len;
 
 	len = 0;
-	if (n < 0)
-	{
-		n = ULONG_MAX + n;
-		len++;
-	}
 	while (n > 0)
 	{
 		n = n / 10;
@@ -43,8 +38,6 @@ char	*ft_lutoa(long unsigned int n)
 		return (0);
 	num[i] = '\0';
 	num[0] = '0';
-	if (nb < 0)
-		n = ULONG_MAX + n;
 	while (i-- >= 0)
 	{
 		if (nb > 0)
