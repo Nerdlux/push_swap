@@ -3,21 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sb.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adrian <adrian@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jruiz-ro <jruiz-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/10 20:28:11 by acortes-          #+#    #+#             */
-/*   Updated: 2021/03/25 17:15:06 by adrian           ###   ########.fr       */
+/*   Created: 2021/03/11 17:48:15 by jruiz-ro          #+#    #+#             */
+/*   Updated: 2021/03/31 17:44:52 by jruiz-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-
 void	ft_sb(t_list **b)
 {
-
-	if(b == NULL || *b == NULL || (*b)->next == NULL)
- 		error_exit("No B stack to swap");
-
+	if (b == NULL || *b == NULL || (*b)->next == NULL)
+		error_exit("No B stack to swap");
 	ft_lstswap(b);
 }

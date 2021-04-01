@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acortes- <acortes-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jruiz-ro <jruiz-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/17 14:15:08 by vsempere          #+#    #+#             */
-/*   Updated: 2021/03/09 20:21:28 by acortes-         ###   ########.fr       */
+/*   Created: 2021/03/11 17:48:15 by jruiz-ro          #+#    #+#             */
+/*   Updated: 2021/04/01 17:27:52 by jruiz-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../checker.h"
 
-void		ft_bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
 	char	*cs;
 	size_t	i;
@@ -26,13 +26,16 @@ void		ft_bzero(void *s, size_t n)
 	}
 }
 
-int		ft_isspace(int c)
+int	ft_isspace(int c)
 {
-	return ('\f' == c || '\n' == c || '\r' == c || '\t' == c || '\v' == c ||
-			' ' == c ? 1 : 0);
+	c = (unsigned char)c;
+	if (c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == '\r'
+		|| c == ' ')
+		return (1);
+	return (0);
 }
 
-void			*ft_calloc(size_t nmemb, size_t size)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void		*r;
 
@@ -42,7 +45,7 @@ void			*ft_calloc(size_t nmemb, size_t size)
 	return (r);
 }
 
-void				*ft_memcpy(void *dest, const void *src, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	size_t		i;
 	char		*cd;
@@ -61,13 +64,14 @@ void				*ft_memcpy(void *dest, const void *src, size_t n)
 	return (dest);
 }
 
-char			*ft_trim(char *str)
+char	*ft_trim(char *str)
 {
 	size_t		start;
 	size_t		end;
 	char		*trimmed;
 
-	if (!str || !(end = ft_strlen(str)))
+	end = ft_strlen(str);
+	if (!str || !end)
 		return (0);
 	start = 0;
 	while (ft_isspace(*(str + start)))
@@ -77,9 +81,9 @@ char			*ft_trim(char *str)
 		end--;
 	if (start > end)
 		return (0);
-	if (!(trimmed = ft_calloc(end - start + 2, sizeof(char))))
+	trimmed = ft_calloc(end - start + 2, sizeof(char));
+	if (!trimmed)
 		return (0);
 	ft_memcpy(trimmed, str + start, (end - start + 1));
 	return (trimmed);
 }
-

@@ -5,35 +5,42 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jruiz-ro <jruiz-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/09 19:25:09 by acortes-          #+#    #+#             */
-/*   Updated: 2021/03/10 21:06:46 by jruiz-ro         ###   ########.fr       */
+/*   Created: 2021/03/11 17:48:15 by jruiz-ro          #+#    #+#             */
+/*   Updated: 2021/04/01 19:58:25 by jruiz-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../checker.h"
 
-void insertionSort(int arr[], int n)
+int	*ft_insertion_sort(int arr[], int argc)
 {
-    int i;
-	int	key;
+	int	i;
 	int	j;
+	int	tmp;
 
-	i = 1;
-	while (i < n)
-    {
-        key = arr[i];
-        j = i - 1;
-        while (j >= 0 && arr[j] > key)
-        {
-            arr[j + 1] = arr[j];
-            j = j - 1;
-        }
-        arr[j + 1] = key;
+	if (!arr)
+		return (0);
+	i = 0;
+	j = 0;
+	while (i < argc)
+	{
+		j = i + 1;
+		while (j < argc)
+		{
+			if (arr[j] < arr[i])
+			{
+				tmp = arr[i];
+				arr[i] = arr[j];
+				arr[j] = tmp;
+			}
+			j++;
+		}
 		i++;
-    }
+	}
+	return (arr);
 }
 
-int ft_check_if_number(char *arg, s_struct *s_alpha)
+int	ft_check_if_number(char *arg, s_struct *s_alpha)
 {
 	(void)s_alpha;
 	if (ft_isinteger(arg) == 0)
@@ -41,10 +48,10 @@ int ft_check_if_number(char *arg, s_struct *s_alpha)
 	return (0);
 }
 
-int ft_check_if_all_correct(s_struct *s_alpha, char **argv, int argc)
+int	ft_check_if_all_correct(s_struct *s_alpha, char **argv, int argc)
 {
 	int	count;
-	int i;
+	int	i;
 
 	count = 1;
 	while (count < argc)
@@ -53,34 +60,28 @@ int ft_check_if_all_correct(s_struct *s_alpha, char **argv, int argc)
 			return (1);
 		count++;
 	}
-	// Aqui necesito la interpretación de comandos del push_swap leyendo s_alpha_parseString.
-
-	// Y luego de eso necesito una comparativa con una array ordenada correctamente.
 	s_alpha->all_int = malloc(sizeof(int) * (argc - 1));
-	count = 1;
-	i = 0;
-	while(count < argc)
-	{
-		s_alpha->all_int[i] = ft_atoi(argv[count]);
-		i++;
-		count++;
-	}
-	// Crear una funcion de ordenación para s_alpha->all_int
-	insertionSort(s_alpha->all_int, argc - 1);
-
-	// lo siguiente es test
+	s_alpha->all_ord_int = malloc(sizeof(int) * (argc - 1));
 	count = 1;
 	i = 0;
 	while (count < argc)
 	{
-		ft_putstr(ANSI_COLOR_CYAN);
-		ft_putnbr(s_alpha->all_int[i]);
-		ft_putstr("\n");
+		s_alpha->all_int[i] = ft_atoi(argv[count]);
+		s_alpha->all_ord_int[i] = ft_atoi(argv[count]);
 		i++;
 		count++;
 	}
-	ft_putstr(ANSI_COLOR_RESET);
-
-	//hasta aqui
+	ft_insertion_sort(s_alpha->all_ord_int, argc - 1);
 	return (0);
+}
+
+int	ft_get_int(t_list *a)
+{
+	int	res;
+
+	res = 0;
+	if (!a)
+		error_exit("No values to get int from");
+	res = ft_ptoint(a->content);
+	return (res);
 }
